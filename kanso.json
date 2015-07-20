@@ -1,0 +1,14 @@
+{
+  "name": "integration-layer",
+  "version": "0.0.1",
+  "description": "super smooth and nice project",
+  "url": "http: //github.com/degliwe/integration-layer",
+  "attachments": ["static"],
+  "load":"lib/couchapp",
+  "modules":["lib"],
+  "dependencies": {
+    "attachments": null,
+    "properties": null,
+    "modules": null
+  }
+}
