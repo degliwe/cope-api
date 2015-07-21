@@ -1,8 +1,8 @@
 # Integration Layer
 
-[Hosted api available here](http://ilayer.deglise.com/v1/articles/)
+[Hosted api available here](http://ilayer)
 
-[Api description here](https://webgate.ec.europa.eu/CITnet/confluence/display/NEXTEUROPA/Api+specifications)
+[Api description here](http://Api+specifications)
 
 ## Minimal document
 
