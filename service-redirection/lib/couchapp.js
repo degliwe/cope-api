@@ -4,6 +4,6 @@
  * @type {{rewrites: exports, views: exports, shows: exports, lists: exports, filters: exports, validate_doc_update: exports, updates: exports}}
  */
 module.exports = {
-    rewrites: require("./rewrites"),
-    shows: require("./shows")
+    views: require("./views"),
+    lists: require("./lists")
 };

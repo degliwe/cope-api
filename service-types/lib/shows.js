@@ -7,15 +7,15 @@
  */
 exports.showTypes = function(doc, req) {
 
-    var schemas;
+    var schemas =[];
+    var schemaLib = this.lib.schemas;
 
-    // schema needs to exists
-    if (!this.lib.hasOwnProperty(schemas)) {
-        return {'json':{code: 404, error: "not_found", reason: 'There is no schema'}};
+    for(var type in schemaLib){
+        var newType = require('lib/schemas/' + type);
+        var currType ={};
+        currType[newType['v1'].id] = newType['v1'].version;
+        schemas.push(currType);
     }
-    schemas = require('lib/schemas');
-
-    //schema =  schema[version];
 
     if(schemas==null) {
         return {'json':{code: 404, error: "not_found", reason: "schema doesn't exist"}};

@@ -25,16 +25,3 @@ exports.showArticles = function(doc, req) {
 
     return {'json': newDoc};
 };
-
-exports.dummy = function(doc, req){
-    provides('json', function(){
-        return {
-            'headers': {'Content-Type': 'application/json'},
-            'body': toJSON(doc)
-        }
-    });
-    registerType('text-json', 'text/json');
-    provides('text-json', function(){
-        return toJSON(doc);
-    })
-};
