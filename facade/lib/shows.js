@@ -24,7 +24,7 @@ exports.api = function(doc, req){
                             content += ''.concat('<legend><a name="', api[endpoint].documentation.title, '">', api[endpoint].documentation.title, '</a></legend>');
                             content += ''.concat('<div class="bubble bubble-verb bubble-verb-', api[endpoint].method, '">', api[endpoint].method, '</div>');
                             content += ''.concat('<code class="bubble">', api[endpoint].from, '</code>');
-                            content += ''.concat('<p> description: ', api[endpoint].documentation.description, '</p>');
+                            content += ''.concat('<h3>Description</h3><p> ', api[endpoint].documentation.description, '</p>');
 
                             if (api[endpoint].documentation.hasOwnProperty('params')) {
 

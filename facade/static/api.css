@@ -21,7 +21,7 @@ th {
     text-align: left;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 700;
-    padding: 4px 8px;
+    padding: 16px;
     border: #e0e0e0 1px solid;
 }
 
@@ -31,7 +31,7 @@ th:first-child{
 
 td {
     vertical-align: top;
-    padding: 2px 8px;
+    padding: 12px 16px;
     border: #e0e0e0 1px solid;
 }
 
@@ -95,6 +95,13 @@ fieldset p,fieldset h3{
     padding-right:6px;
 }
 
+#content {
+    padding-top: 16px;
+    z-Index: -1;
+    margin-left: 270px;
+    max-width : 720px;
+}
+
 .sidenav {
     width: 228px;
     margin: 0;
@@ -108,23 +115,27 @@ fieldset p,fieldset h3{
     background-color: #f5f5f5;
 }
 
-.sidenav a {
-    text-transform: capitalize;
-}
-
-#content {
-    padding-top: 16px;
-    z-Index: -1;
-    margin-left: 270px;
-    max-width : 720px;
-}
-
-ul {
+.sidenav ul {
     padding-left: 0px;
 }
 
-li {
-    list-style: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
+.sidenav li {
+    display: block;
+    vertical-align: bottom;
+    font-size: 1.0rem;
 }
+
+.sidenav a {
+    display: block;
+    text-decoration: none;
+    padding: 0.5rem;
+    color: #111122;
+    font-weight: 500;
+    transition: .3s;
+    text-transform: capitalize;
+}
+
+.sidenav a:hover {
+    background-color: rgba(255, 255, 255, 1.0);
+}
+

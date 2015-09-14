@@ -42,7 +42,7 @@ module.exports = [
         to:'../document/_list/listDocuments/articles',
         query:{ descending : 'true' },
         method: 'GET',
-        documentation:{
+        nodocumentation:{
             title: 'Get latest articles',
             description: 'Fetch the lastest articles',
             headers: {'content-type':'application/json'}
@@ -110,19 +110,19 @@ module.exports = [
     },
     // return uuid for a given producer:producer_id
     {
-        from: '/v1/uuid/:service/:id',
+        from: '/v1/uuid/:producer/:producer_id',
         to: '../document/_view/uuid',
         query: {
             key: [
-                ':service',
-                ':id'
+                ':producer',
+                ':producer_id'
             ]
         },
         method: 'GET',
         documentation:{
             title: 'get document unique id',
-            description: 'return uuid for a given producer:producer_id',
-            params: {':service':' producer',':id':'the internal document id'}
+            description: 'return uuid for a given :producer/:producer_id',
+            params: {':producer':' producer',':producer_id':'the internal document id'}
         }
     },
     {
@@ -217,28 +217,161 @@ module.exports = [
             params: {':uuid':'the unique id of the content'}
         }
     },
+    // Display service
+    {
+        from: '/v1/display/teaser/:producer/:type',
+        to: '../display/_view/viewTeaserByProducerByschema',
+        query:{
+            key:[":producer",":type"],
+            descending : 'true'
+        },
+        method: 'GET',
+        documentation:{
+            title: 'Get teaser',
+            description: 'Fetch the teaser for producer and type',
+            params: {
+                ':producer (optional)':'producer id',
+                ':type (optional)':'schema name'
+            }
+        }
+    },
+    {
+        from: '/v1/display/teaser/:producer',
+        to: '../display/_view/viewTeaserByProducerByschema',
+        query:{
+            endkey:[':producer'],
+            startkey:[':producer',{}],
+            descending : 'true'
+        },
+        method: 'GET'
+    },
+    {
+        from: '/v1/display/teaser',
+        to: '../display/_view/viewTeaserByProducerByschema',
+        method: 'GET'
+    },
+    {
+        from: '/v1/display/title/:producer/:type',
+        to: '../display/_view/viewTitleByProducerByschema',
+        query:{
+            key:[":producer",":type"],
+            descending : 'true'
+        },
+        method: 'GET',
+        documentation:{
+            title: 'Get title',
+            description: 'Fetch the title for producer and type',
+            params: {
+                ':producer (optional)':'producer id',
+                ':type (optional)':'schema name'
+            }
+        }
+    },
+    {
+        from: '/v1/display/title/:producer',
+        to: '../display/_view/viewTitleByProducerByschema',
+        query:{
+            endkey:[':producer'],
+            startkey:[':producer',{}],
+            descending : 'true'
+        },
+        method: 'GET'
+    },
+    {
+        from: '/v1/display/title',
+        to: '../display/_view/viewTeaserByProducerByschema',
+        method: 'GET'
+    },
+    {
+        from: '/v1/display/full/:producer/:type',
+        to: '../display/_view/viewFullByProducerByschema',
+        query:{
+            key:[":producer",":type"],
+            descending : 'true'
+        },
+        method: 'GET',
+        documentation:{
+            title: 'Get full',
+            description: 'Fetch full document for producer and type',
+            params: {
+                ':producer (optional)':'producer id',
+                ':type (optional)':'schema name'
+            }
+        }
+    },
+    {
+        from: '/v1/display/full/:producer',
+        to: '../display/_view/viewFullByProducerByschema',
+        query:{
+            endkey:[':producer'],
+            startkey:[':producer',{}],
+            descending : 'true'
+        },
+        method: 'GET'
+    },
+    {
+        from: '/v1/display/full',
+        to: '../display/_view/viewFullByProducerByschema',
+        method: 'GET'
+    },
+    {
+        from: '/v1/display/meta/:producer/:type',
+        to: '../display/_view/viewMetaByProducerByschema',
+        query:{
+            key:[":producer",":type"],
+            descending : 'true'
+        },
+        method: 'GET',
+        documentation:{
+            title: 'Get meta',
+            description: 'Fetch meta for producer and type',
+            params: {
+                ':producer (optional)':'producer id',
+                ':type (optional)':'schema name'
+            }
+        }
+    },
+    {
+        from: '/v1/display/meta/:producer',
+        to: '../display/_view/viewMetaByProducerByschema',
+        query:{
+            endkey:[':producer'],
+            startkey:[':producer',{}],
+            descending : 'true'
+        },
+        method: 'GET'
+    },
+    {
+        from: '/v1/display/meta',
+        to: '../display/_view/viewMetaByProducerByschema',
+        method: 'GET'
+    },
     // return file for a given document, filename
     {
         from: '/v1/articles/:doc/:attachment',
         to: '../../:doc/:attachment'
     },
-        // change feed for articles
     {
         from: '/v1/changes/articles',
         to: '../../_changes',
         query: {
-            filter: 'integration-layer/articles'
+            filter: 'notification/articles'
         },
         method: 'GET'
     },
         // change feed for article from a given producer
     {
-        from: '/v1/changes/articles/:service',
+        from: '/v1/changes/articles/:producer',
         to: '../../_changes',
         query: {
-            filter: 'integration-layer/articlesPerProducer',
-            producer:':service'
+            filter: 'notification/articlesPerProducer',
+            producer:':producer'
         },
-        method: 'GET'
+        method: 'GET',
+        documentation:{
+            title: 'Articles changes ',
+            description: 'Change feed for articles from a given :producer',
+            params: {':producer (optional)':'producer name'}
+        }
     }
     ]
