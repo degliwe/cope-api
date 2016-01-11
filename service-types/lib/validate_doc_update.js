@@ -36,7 +36,7 @@ module.exports = function(newDoc, oldDoc, userCtx) {
 	}
 
     //onDeleted skip required fields check
-    if (newDoc.deleted_by_producer && oldDoc.producer == userCtx.name) {
+    if (newDoc.deleted_by_producer && oldDoc.producer == userCtx.name || userCtx.name == "admin") {
         return;
     }
 

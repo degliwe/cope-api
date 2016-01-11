@@ -188,6 +188,21 @@ module.exports = [
         }
     },
     {
+        from: '/v1/browser',
+        to: '../remote-browser/_list/list_browser/browse_by_url',
+        query: {
+            limit: '1',
+            key:':url'
+        },
+        method: 'GET',
+        documentation:{
+            title: 'Get content preview from :url',
+            description: 'return a document preview for a given ?url=http://...',
+            headers: {'content-type':'application/json'},
+            params: {':url':'the url'}
+        }
+    },
+    {
         from: '/v1/language_coverage',
         to: '../language-coverage/_list/listLanguageCoverage/language_coverage_by_url',
         query: {
