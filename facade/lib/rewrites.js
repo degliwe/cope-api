@@ -388,5 +388,6 @@ module.exports = [
             description: 'Change feed for articles from a given :producer',
             params: {':producer (optional)':'producer name'}
         }
-    }
+    },
+    {from: '/beta/login', to: '../../_session'}
     ]
