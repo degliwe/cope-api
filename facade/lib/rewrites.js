@@ -6,7 +6,7 @@
 module.exports = [
     {
         //return api status (200)
-        from: '/v1',
+        from: '/beta',
         to: '_show/api',
         method: 'GET'
     },
@@ -17,7 +17,7 @@ module.exports = [
         method: 'GET'
     },
     {
-        from: '/v1/articles',
+        from: '/beta/articles',
         to: '../document/_update/updateDocument/',
         method: 'POST',
         documentation:{
@@ -28,7 +28,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/articles/',
+        from: '/beta/articles/',
         to:'../document/_list/listDocuments/articles',
         method: 'GET',
         documentation:{
@@ -38,7 +38,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/articles/latest',
+        from: '/beta/articles/latest',
         to:'../document/_list/listDocuments/articles',
         query:{ descending : 'true' },
         method: 'GET',
@@ -49,7 +49,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/articles/:uuid',
+        from: '/beta/articles/:uuid',
         to: '../document/_show/showArticles/:uuid',
         method: 'GET',
         documentation:{
@@ -61,7 +61,7 @@ module.exports = [
     },
     //UPDATE
     {
-        from: '/v1/articles/:uuid',
+        from: '/beta/articles/:uuid',
         to: '../document/_update/updateDocument/:uuid',
         method: 'PUT',
         documentation:{
@@ -73,7 +73,7 @@ module.exports = [
     },
     //DELETE
     {
-        from: '/v1/articles/:uuid',
+        from: '/beta/articles/:uuid',
         to: '../document/_update/deleteDocument/:uuid',
         method: 'DELETE',
         documentation:{
@@ -85,7 +85,7 @@ module.exports = [
     },
     {
         //_rewrite/schema/basic/v1
-        from: '/v1/schema/:type/:version',
+        from: '/beta/schema/:type/:version',
         //_show/showSchema?type=basic&version=v1
         to: '../resource-type/_show/showSchema',
         query: {
@@ -101,7 +101,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/changes/docs/:author',
+        from: '/beta/changes/docs/:author',
         to: '../../_changes?filter=v1/docs',
         query: {
             key:':author'
@@ -110,7 +110,7 @@ module.exports = [
     },
     // return uuid for a given producer:producer_id
     {
-        from: '/v1/uuid/:producer/:producer_id',
+        from: '/beta/uuid/:producer/:producer_id',
         to: '../document/_view/uuid',
         query: {
             key: [
@@ -126,7 +126,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/stats/producers',
+        from: '/beta/stats/producers',
         to: '../document/_view/producers',
         query: {
             group: 'true'
@@ -139,7 +139,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/types',
+        from: '/beta/types',
         to: '../resource-type/_show/showTypes',
         method: 'GET',
         documentation:{
@@ -149,7 +149,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/stats/types',
+        from: '/beta/stats/types',
         to: '../document/_view/types',
         query: {
             group: 'true'
@@ -158,7 +158,7 @@ module.exports = [
     },
     // return list of articles for a given producer
     {
-        from: '/v1/articles/producer/:producer',
+        from: '/beta/articles/producer/:producer',
         to: '../document/_view/articles',
         query: {
             key:':producer',
@@ -173,7 +173,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/redirection',
+        from: '/beta/redirection',
         to: '../redirection/_list/list_redirection/redirection_by_url',
         query: {
             limit: '1',
@@ -188,7 +188,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/browser',
+        from: '/beta/browser',
         to: '../remote-browser/_list/list_browser/browse_by_url',
         query: {
             limit: '1',
@@ -203,7 +203,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/language_coverage',
+        from: '/beta/language_coverage',
         to: '../language-coverage/_list/listLanguageCoverage/language_coverage_by_url',
         query: {
             limit: '1',
@@ -218,7 +218,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/language_coverage/:uuid',
+        from: '/beta/language_coverage/:uuid',
         to: '../language-coverage/_list/listLanguageCoverage/language_coverage_by_id',
         query: {
             limit: '1',
@@ -234,7 +234,7 @@ module.exports = [
     },
     // Display service
     {
-        from: '/v1/display/teaser/:producer/:type',
+        from: '/beta/display/teaser/:producer/:type',
         to: '../display/_view/viewTeaserByProducerByschema',
         query:{
             key:[":producer",":type"],
@@ -251,7 +251,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/display/teaser/:producer',
+        from: '/beta/display/teaser/:producer',
         to: '../display/_view/viewTeaserByProducerByschema',
         query:{
             endkey:[':producer'],
@@ -261,12 +261,12 @@ module.exports = [
         method: 'GET'
     },
     {
-        from: '/v1/display/teaser',
+        from: '/beta/display/teaser',
         to: '../display/_view/viewTeaserByProducerByschema',
         method: 'GET'
     },
     {
-        from: '/v1/display/title/:producer/:type',
+        from: '/beta/display/title/:producer/:type',
         to: '../display/_view/viewTitleByProducerByschema',
         query:{
             key:[":producer",":type"],
@@ -283,7 +283,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/display/title/:producer',
+        from: '/beta/display/title/:producer',
         to: '../display/_view/viewTitleByProducerByschema',
         query:{
             endkey:[':producer'],
@@ -293,12 +293,12 @@ module.exports = [
         method: 'GET'
     },
     {
-        from: '/v1/display/title',
+        from: '/beta/display/title',
         to: '../display/_view/viewTeaserByProducerByschema',
         method: 'GET'
     },
     {
-        from: '/v1/display/full/:producer/:type',
+        from: '/beta/display/full/:producer/:type',
         to: '../display/_view/viewFullByProducerByschema',
         query:{
             key:[":producer",":type"],
@@ -315,7 +315,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/display/full/:producer',
+        from: '/beta/display/full/:producer',
         to: '../display/_view/viewFullByProducerByschema',
         query:{
             endkey:[':producer'],
@@ -325,12 +325,12 @@ module.exports = [
         method: 'GET'
     },
     {
-        from: '/v1/display/full',
+        from: '/beta/display/full',
         to: '../display/_view/viewFullByProducerByschema',
         method: 'GET'
     },
     {
-        from: '/v1/display/meta/:producer/:type',
+        from: '/beta/display/meta/:producer/:type',
         to: '../display/_view/viewMetaByProducerByschema',
         query:{
             key:[":producer",":type"],
@@ -347,7 +347,7 @@ module.exports = [
         }
     },
     {
-        from: '/v1/display/meta/:producer',
+        from: '/beta/display/meta/:producer',
         to: '../display/_view/viewMetaByProducerByschema',
         query:{
             endkey:[':producer'],
@@ -357,17 +357,17 @@ module.exports = [
         method: 'GET'
     },
     {
-        from: '/v1/display/meta',
+        from: '/beta/display/meta',
         to: '../display/_view/viewMetaByProducerByschema',
         method: 'GET'
     },
     // return file for a given document, filename
     {
-        from: '/v1/articles/:doc/:attachment',
+        from: '/beta/articles/:doc/:attachment',
         to: '../../:doc/:attachment'
     },
     {
-        from: '/v1/changes/articles',
+        from: '/beta/changes/articles',
         to: '../../_changes',
         query: {
             filter: 'notification/articles'
@@ -376,7 +376,7 @@ module.exports = [
     },
         // change feed for article from a given producer
     {
-        from: '/v1/changes/articles/:producer',
+        from: '/beta/changes/articles/:producer',
         to: '../../_changes',
         query: {
             filter: 'notification/articlesPerProducer',
