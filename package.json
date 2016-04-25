@@ -1,0 +1,43 @@
+{
+  "name": "integration-layer-backend",
+  "version": "0.1.0",
+  "description": "Integration Layer",
+  "scripts": {
+    "build:facade": "grunt couch-compile:facade",
+    "install:facade": "grunt couch-push:facade",
+    "build:service-display": "grunt couch-compile:service-display",
+    "install:service-display": "grunt couch-push:service-display",
+    "build:service-document": "grunt couch-compile:service-document",
+    "install:service-document": "grunt couch-push:service-document",
+    "build:service-notification": "grunt couch-compile:service-notification",
+    "install:service-notification": "grunt couch-push:service-notification",
+    "build:service-redirection": "grunt couch-compile:service-redirection",
+    "install:service-redirection": "grunt couch-push:service-redirection",
+    "build:service-remote-browser": "grunt couch-compile:service-remote-browser",
+    "install:service-remote-browser": "grunt couch-push:service-remote-browser",
+    "build:service-types": "grunt couch-compile:service-types",
+    "install:service-types": "grunt couch-push:service-types",
+    "build": "npm-run-all --parallel build:*",
+    "install": "npm-run-all --parallel install:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/integration-layer-backend.git"
+  },
+  "keywords": [
+    "integration",
+    "layer",
+    "couchdb"
+  ],
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "bugs": {
+    "url": "https://github.com/ec-europa/integration-layer-backend/issues"
+  },
+  "homepage": "https://github.com/ec-europa/integration-layer-backend#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-couch": "^1.5.1",
+    "npm-run-all": "^1.8.0"
+  }
+}
