@@ -9,7 +9,7 @@
   },
   {
     "from":"/beta/articles",
-    "to":"../serivce-document/_update/updateDocument/",
+    "to":"../service-document/_update/updateDocument/",
     "method":"POST",
     "documentation":{
       "title":"Post article",
