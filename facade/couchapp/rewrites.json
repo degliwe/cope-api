@@ -9,7 +9,7 @@
   },
   {
     "from":"/beta/articles",
-    "to":"../document/_update/updateDocument/",
+    "to":"../serivce-document/_update/updateDocument/",
     "method":"POST",
     "documentation":{
       "title":"Post article",
@@ -24,8 +24,8 @@
     }
   },
   {
-    "from":"/beta/articles/",
-    "to":"../document/_list/listDocuments/articles",
+    "from":"/beta/articles",
+    "to":"../service-document/_list/listDocuments/articles",
     "method":"GET",
     "documentation":{
       "title":"Get articles",
@@ -37,7 +37,7 @@
   },
   {
     "from":"/beta/articles/latest",
-    "to":"../document/_list/listDocuments/articles",
+    "to":"../service-document/_list/listDocuments/articles",
     "query":{
       "descending":"true"
     },
@@ -52,7 +52,7 @@
   },
   {
     "from":"/beta/articles/:uuid",
-    "to":"../document/_show/showArticles/:uuid",
+    "to":"../service-document/_show/showArticles/:uuid",
     "method":"GET",
     "documentation":{
       "title":"Get article",
@@ -67,7 +67,7 @@
   },
   {
     "from":"/beta/articles/:uuid",
-    "to":"../document/_update/updateDocument/:uuid",
+    "to":"../service-document/_update/updateDocument/:uuid",
     "method":"PUT",
     "documentation":{
       "title":"Put article",
@@ -82,7 +82,7 @@
   },
   {
     "from":"/beta/articles/:uuid",
-    "to":"../document/_update/deleteDocument/:uuid",
+    "to":"../service-document/_update/deleteDocument/:uuid",
     "method":"DELETE",
     "documentation":{
       "title":"Delete article",
@@ -97,7 +97,7 @@
   },
   {
     "from":"/beta/schema/:type/:version",
-    "to":"../resource-type/_show/showSchema",
+    "to":"../service-types/_show/showSchema",
     "query":{
       "type":":type",
       "version":":version"
@@ -125,7 +125,7 @@
   },
   {
     "from":"/beta/uuid/:producer/:producer_id",
-    "to":"../document/_view/uuid",
+    "to":"../service-document/_view/uuid",
     "query":{
       "key":[
         ":producer",
@@ -144,7 +144,7 @@
   },
   {
     "from":"/beta/stats/producers",
-    "to":"../document/_view/producers",
+    "to":"../service-document/_view/producers",
     "query":{
       "group":"true"
     },
@@ -159,7 +159,7 @@
   },
   {
     "from":"/beta/types",
-    "to":"../resource-type/_show/showTypes",
+    "to":"../service-types/_show/showTypes",
     "method":"GET",
     "documentation":{
       "title":"Get types",
@@ -171,7 +171,7 @@
   },
   {
     "from":"/beta/stats/types",
-    "to":"../document/_view/types",
+    "to":"../service-document/_view/types",
     "query":{
       "group":"true"
     },
@@ -179,7 +179,7 @@
   },
   {
     "from":"/beta/articles/producer/:producer",
-    "to":"../document/_view/articles",
+    "to":"../service-document/_view/articles",
     "query":{
       "key":":producer",
       "descending":"true"
@@ -198,7 +198,7 @@
   },
   {
     "from":"/beta/redirection",
-    "to":"../redirection/_list/list_redirection/redirection_by_url",
+    "to":"../service-redirection/_list/list_redirection/redirection_by_url",
     "query":{
       "limit":"1",
       "key":":url"
@@ -217,7 +217,7 @@
   },
   {
     "from":"/beta/browser",
-    "to":"../remote-browser/_list/list_browser/browse_by_url",
+    "to":"../service-remote-browser/_list/list_browser/browse_by_url",
     "query":{
       "limit":"1",
       "key":":url"
@@ -235,46 +235,8 @@
     }
   },
   {
-    "from":"/beta/language_coverage",
-    "to":"../language-coverage/_list/listLanguageCoverage/language_coverage_by_url",
-    "query":{
-      "limit":"1",
-      "key":":url"
-    },
-    "method":"GET",
-    "documentation":{
-      "title":"Get language coverage by url",
-      "description":"return list of multilingual urls for a given ?url=http://...",
-      "headers":{
-        "content-type":"application/json"
-      },
-      "params":{
-        ":url":"the url"
-      }
-    }
-  },
-  {
-    "from":"/beta/language_coverage/:uuid",
-    "to":"../language-coverage/_list/listLanguageCoverage/language_coverage_by_id",
-    "query":{
-      "limit":"1",
-      "key":":uuid"
-    },
-    "method":"GET",
-    "documentation":{
-      "title":"Get language coverage by uuid",
-      "description":"return list of multilingual urls for a given :uuid",
-      "headers":{
-        "content-type":"application/json"
-      },
-      "params":{
-        ":uuid":"the unique id of the content"
-      }
-    }
-  },
-  {
     "from":"/beta/display/teaser/:producer/:type",
-    "to":"../display/_view/viewTeaserByProducerByschema",
+    "to":"../service-display/_view/viewTeaserByProducerByschema",
     "query":{
       "key":[
         ":producer",
@@ -294,7 +256,7 @@
   },
   {
     "from":"/beta/display/teaser/:producer",
-    "to":"../display/_view/viewTeaserByProducerByschema",
+    "to":"../service-display/_view/viewTeaserByProducerByschema",
     "query":{
       "endkey":[
         ":producer"
@@ -311,12 +273,12 @@
   },
   {
     "from":"/beta/display/teaser",
-    "to":"../display/_view/viewTeaserByProducerByschema",
+    "to":"../service-display/_view/viewTeaserByProducerByschema",
     "method":"GET"
   },
   {
     "from":"/beta/display/title/:producer/:type",
-    "to":"../display/_view/viewTitleByProducerByschema",
+    "to":"../service-display/_view/viewTitleByProducerByschema",
     "query":{
       "key":[
         ":producer",
@@ -336,7 +298,7 @@
   },
   {
     "from":"/beta/display/title/:producer",
-    "to":"../display/_view/viewTitleByProducerByschema",
+    "to":"../service-display/_view/viewTitleByProducerByschema",
     "query":{
       "endkey":[
         ":producer"
@@ -353,12 +315,12 @@
   },
   {
     "from":"/beta/display/title",
-    "to":"../display/_view/viewTeaserByProducerByschema",
+    "to":"../service-display/_view/viewTeaserByProducerByschema",
     "method":"GET"
   },
   {
     "from":"/beta/display/full/:producer/:type",
-    "to":"../display/_view/viewFullByProducerByschema",
+    "to":"../service-display/_view/viewFullByProducerByschema",
     "query":{
       "key":[
         ":producer",
@@ -378,7 +340,7 @@
   },
   {
     "from":"/beta/display/full/:producer",
-    "to":"../display/_view/viewFullByProducerByschema",
+    "to":"../service-display/_view/viewFullByProducerByschema",
     "query":{
       "endkey":[
         ":producer"
@@ -395,12 +357,12 @@
   },
   {
     "from":"/beta/display/full",
-    "to":"../display/_view/viewFullByProducerByschema",
+    "to":"../service-display/_view/viewFullByProducerByschema",
     "method":"GET"
   },
   {
     "from":"/beta/display/meta/:producer/:type",
-    "to":"../display/_view/viewMetaByProducerByschema",
+    "to":"../service-display/_view/viewMetaByProducerByschema",
     "query":{
       "key":[
         ":producer",
@@ -420,7 +382,7 @@
   },
   {
     "from":"/beta/display/meta/:producer",
-    "to":"../display/_view/viewMetaByProducerByschema",
+    "to":"../service-display/_view/viewMetaByProducerByschema",
     "query":{
       "endkey":[
         ":producer"
@@ -437,7 +399,7 @@
   },
   {
     "from":"/beta/display/meta",
-    "to":"../display/_view/viewMetaByProducerByschema",
+    "to":"../service-display/_view/viewMetaByProducerByschema",
     "method":"GET"
   },
   {
