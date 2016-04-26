@@ -4,6 +4,7 @@
 
 * Node.js >= v4
 * npm >= v3.3.x
+* CouchDB 1.6.1
 
 ## Setup
 
@@ -12,6 +13,12 @@ Clone the project and then run the following command in order to get a working b
 ```bash
 npm install
 ```
+
+Also don't forget to start your CouchDB server.
+
+## Configuration
+
+The default configuration can be found in _config.dist.json_. You can override it by creating a local _config.json_.
 
 ## Build
 
