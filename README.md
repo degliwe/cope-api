@@ -1,5 +1,20 @@
 # Integration Layer
 
+## Requirements
+
+* Node.js >= v4
+* npm >= v3.3.x
+
+## Setup
+
+Clone the project and then run the following command in order to get a working build environment.
+
+```bash
+npm install
+```
+
+## Build
+
 If you want to build the whole project, run the two following commands. Otherwise, see further explanations.
 
 ```bash
@@ -7,7 +22,7 @@ npm run build
 npm run install
 ```
 
-## Facade
+### Facade
 
 Following the facade design pattern, all the api is described here with the routing.
 
@@ -16,7 +31,7 @@ npm run build:facade
 npm run install:facade
 ```
 
-## Display
+### Display
 
 ```bash
 npm run build:service-display
