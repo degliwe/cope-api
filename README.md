@@ -85,3 +85,8 @@ Provide list of types and json schema
 npm run build:facade
 npm run push:facade
 ```
+
+## Usage
+
+To start, follow the route exposed by the facade. By default, it should be
+http://localhost:5984/ilayer/_design/facade/_rewrite/beta
