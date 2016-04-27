@@ -1,4 +1,4 @@
 .idea
-.kansorc
-packages
-vendor
+.tmp
+node_modules
+config.json
