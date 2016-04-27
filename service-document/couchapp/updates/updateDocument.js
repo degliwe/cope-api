@@ -17,7 +17,7 @@ function(doc, req) {
             //TODO inject dates
 
             return [newdoc, {
-                'code': 200,
+                'code': 201,
                 'json': {
                     "ok": true,
                     "id": newdoc._id
