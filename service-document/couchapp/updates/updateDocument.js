@@ -39,7 +39,7 @@ function(doc, req) {
         newdoc.producer = req.userCtx.name;
 
         return [newdoc, {
-            'code': 200,
+            'code': 201,
             'json': {
                 "ok": true,
                 "id": newdoc._id
